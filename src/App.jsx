@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { STUDY_TOPICS } from "./config/topics";
 import { useCometChatSession, getOrCreateAndJoinTopicRoom } from "./cometchat";
+import StudyRoomChat from "./components/StudyRoomChat";
 
 export default function App() {
   const { currentUser, isInitializing, isLoggedIn } = useCometChatSession();
@@ -98,12 +99,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="room-stage-notice">
-              <h3>Study Room Connected</h3>
-              <p>
-                You are securely connected to this room. CometChat real-time chat UI will be integrated in Step 4.
-              </p>
-            </div>
+            <StudyRoomChat group={group} onBack={handleBackToTopics} />
           </article>
         </div>
       </main>
